@@ -42,7 +42,7 @@ jobs:
         python -m pip install --upgrade build
     - name: Build
       run: |
-        echo $GITHUB_REF_SLUG > src/jote/VERSION
+        echo $GITHUB_REF_SLUG > src/oval/VERSION
         python -m build --sdist --wheel --outdir dist/
     - name: Publish
       uses: pypa/gh-action-pypi-publish@release/v1
