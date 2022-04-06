@@ -5,6 +5,10 @@ Informatics Matters OpenAPI Validator (oval)
    :target: https://badge.fury.io/py/im-openapi-validator
    :alt: PyPI package (latest)
 
+.. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+   :target: https://github.com/pre-commit/pre-commit
+   :alt: pre-commit
+
 A utility designed as a `pre-commit`_ OpenAPI file validator::
 
     oval --help
