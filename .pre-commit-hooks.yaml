@@ -3,6 +3,8 @@
 # Required for repositories that provide pre-commit hok implementations.
 - id: im-oval
   name: OpenAPI Validator
-  description: This hook validates an OpenAPI file
+  description: >-
+    This hook validates an OpenAPI file. The default file is located
+    in app/openapi/openapi.yaml but can be changed using the --file argument
   entry: oval
   language: python
