@@ -38,9 +38,9 @@ def main() -> int:
         .ArgumentParser(description='OpenAPI Validator (oval)',
                         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    arg_parser.add_argument('-f', '--file',
-                            help='The path to the OpenAPI file',
-                            default='app/openapi/openapi.yaml')
+    arg_parser.add_argument('input',
+                            help='The OpenAPI file(s)',
+                            nargs='+')
 
     arg_parser.add_argument('-v', '--version', action='store_true',
                             help='Displays oval version')
@@ -52,15 +52,16 @@ def main() -> int:
         print(_VERSION)
         return 0
 
-    if not os.path.exists(args.file) or not os.path.isfile(args.file):
-        arg_parser.error(f'No such file: {args.file}')
-        sys.exit(1)
+    for input in args.input:
+        if not os.path.exists(input) or not os.path.isfile(input):
+            arg_parser.error(f'No such file: {input}')
+            sys.exit(1)
 
-    api_spec: Dict[str, Any] = read_yaml_file(args.file)
-    try:
-        _ = create_spec(api_spec)
-    except BaseException as ex:
-        print(f'ERROR: {ex}')
-        sys.exit(1)
+        api_spec: Dict[str, Any] = read_yaml_file(input)
+        try:
+            _ = create_spec(api_spec)
+        except BaseException as ex:
+            print(f'ERROR: {ex}')
+            sys.exit(1)
 
     return 0
