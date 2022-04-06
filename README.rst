@@ -5,9 +5,20 @@ Informatics Matters OpenAPI Validator (oval)
    :target: https://badge.fury.io/py/im-openapi-validator
    :alt: PyPI package (latest)
 
-A utility designed as a pre-commit OpenAPI file validator::
+A utility designed as a `pre-commit`_ OpenAPI file validator::
 
     oval --help
+
+Use it by adding it to your repository's ``.pre-commit-config.yaml`` file::
+
+    # Basic OpenAPI Validator
+    - repo: https://github.com/informaticsmatters/openapi-validator
+      rev: '1.0.0'
+      hooks:
+      - id: im-oval
+        files: app/openapi/openapi.yaml
+
+.. _pre-commit: https://pre-commit.com
 
 Installation
 ============
