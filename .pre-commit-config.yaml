@@ -1,0 +1,27 @@
+---
+
+default_language_version:
+  python: python3.10
+minimum_pre_commit_version: 2.18.1
+
+repos:
+# Standard per-commit rules
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.1.0
+  hooks:
+  - id: check-case-conflict
+  - id: check-docstring-first
+  - id: check-executables-have-shebangs
+  - id: check-shebang-scripts-are-executable
+  - id: detect-aws-credentials
+  - id: detect-private-key
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+    args:
+    - --markdown-linebreak-ext=md
+# MyPy
+- repo: https://github.com/pre-commit/mirrors-mypy
+  rev: v0.942
+  hooks:
+  - id: mypy
+    files: ^src
