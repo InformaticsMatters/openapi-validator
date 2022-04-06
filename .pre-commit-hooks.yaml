@@ -1,0 +1,8 @@
+---
+# Our pre-commit hook definition.
+# Required for repositories that provide pre-commit hok implementations.
+- id: im-oval
+  name: OpenAPI Validator
+  description: This hook validates an OpenAPI file
+  entry: oval
+  language: python
