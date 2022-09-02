@@ -1,1 +1,1 @@
-openapi-core == 0.14.2
+openapi-core == 0.14.4
